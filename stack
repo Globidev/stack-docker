@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+stack_container_name="stack-run-tmp_$RANDOM"
+
+docker run \
+    --interactive \
+    --tty \
+    --name "$stack_container_name" \
+    --volume stack-root:/stack \
+    --volume $PWD:/app \
+    haskell-stack \
+    "$@"
+
+docker rm "$stack_container_name"
