@@ -1,5 +1,5 @@
 # stack-docker
-A dockerized haskell stack
+A dockerized Haskell [stack](https://github.com/commercialhaskell/stack)
 
 ## Usage
 Start by creating your stack image and volume (only needed once):
