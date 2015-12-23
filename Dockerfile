@@ -1,12 +1,15 @@
-FROM buildpack-deps
+FROM debian
 
 MAINTAINER guillaume.depardon@gmail.com
 
-# Install libgmp ...
-RUN apt-get update -q && \
-    apt-get install -qy libgmp-dev && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+# Install curl and stack dependencies
+RUN apt-get update && apt-get install -y \
+    curl \
+    build-essential \
+    libgmp-dev \
+    xz-utils \
+    zlib1g-dev \
+    libghc-unix-dev
 
 # Install stack
 RUN curl -L https://www.stackage.org/stack/linux-x86_64 > /tmp/stack.tar.gz
